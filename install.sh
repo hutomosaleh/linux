@@ -3,10 +3,10 @@ sudo apt update -y
 sudo apt upgrade -y
 
 # Install curl
-sudo apt install curl
+sudo apt install curl -y
 
 # Install zsh and ohmyzsh
-sudo apt install zsh
+sudo apt install zsh -y
 chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -26,7 +26,7 @@ cd -
 
 # Install nvim latest version
 curl -L -O https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
-sudo dpkg -i nvim-linux64.deb
+sudo dpkg -i nvim-linux64.deb -y
 rm nvim-linux64.deb
 
 # Install npm
