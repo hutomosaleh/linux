@@ -5,6 +5,17 @@ sudo apt upgrade -y
 # Install curl
 sudo apt install curl -y
 
+# Install neofetch
+sudo apt install neofetch -y
+
+# Install tmux
+sudo apt install tmux -y
+
+# Install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install -y
+sudo apt-get install silversearcher-ag -y
+
 # Install zsh and ohmyzsh
 sudo apt install zsh -y
 chsh -s $(which zsh)
