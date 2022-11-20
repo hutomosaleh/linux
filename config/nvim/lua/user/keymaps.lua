@@ -20,8 +20,8 @@ vim.g.maplocalleader = " "
 
 -- Custom / Personal
 keymap("n", "<C-s>", ":w<CR>", opts)
-keymap("n", "<C-S-tab>", ":bn<CR>", opts)
-keymap("n", "<C-tab>", ":bp<CR>", opts)
+keymap("n", "<C-PageUp>", ":bn<CR>", opts)
+keymap("n", "<C-PageDown>", ":bp<CR>", opts)
 
 -- Normal --
 -- Better window navigation
