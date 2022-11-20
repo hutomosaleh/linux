@@ -15,6 +15,13 @@ case "$response" in
         # Install tmux
         sudo apt install tmux -y
 
+        # Install cmake
+        curl -L -O https://github.com/Kitware/CMake/releases/download/v3.25.0/cmake-3.25.0.tar.gz
+        tar -zxvf cmake-3.25.0.tar.gz && cd cmake-3.25.0.tar.gz/
+        ./bootstrap && make && make install
+        export PATH=$HOME/cmake-install/bin:$PATH
+        export CMAKE_PREFIX_PATH=$HOME/cmake-install:$CMAKE_PREFIX_PATH
+
         # Install fzf
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
         ~/.fzf/install -y
