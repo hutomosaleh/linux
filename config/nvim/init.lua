@@ -20,9 +20,3 @@ require "user.alpha"
 require "user.whichkey"
 require "user.autocommands"
 
--- Custom function
-local map = require("utils").map
-map("n", "<C-p>", ":Files<Cr>")
-map("n", "<C-t>", ":ToggleTerm<Cr>")
-map("n", "<C-f>", ":Ag<Cr>")
-
