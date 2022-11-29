@@ -27,17 +27,6 @@ case "$response" in
         ~/.fzf/install -y
         sudo apt-get install silversearcher-ag -y
 
-        # Install zsh and ohmyzsh
-        sudo apt install zsh -y
-        chsh -s $(which zsh)
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y
-
-        # Install dracula zsh theme
-        git clone https://github.com/dracula/zsh.git temp
-        cp temp/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
-        cp temp/lib ~/.oh-my-zsh/themes/lib
-        rm -r temp/
-
         # Change gnome terminal theme
         yes 76 | bash -c  "$(wget -qO- https://git.io/vQgMr)"
 
@@ -56,9 +45,25 @@ case "$response" in
         source ~/.zshrc
         nvm install --lts
 
+        # Install lazygit
+        LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep '"tag_name":' |  sed -E 's/.*"v*([^"]+)".*/\1/')
+        curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+        sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
+
         # Install neovim basic configs
         cp -TRv config/nvim ~/.config/nvim
         echo "Run nvim and wait until plugins are installed!"
+
+        # Install zsh and ohmyzsh
+        sudo apt install zsh -y
+        chsh -s $(which zsh)
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y
+
+        # Install dracula zsh theme
+        git clone https://github.com/dracula/zsh.git temp
+        cp temp/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
+        cp temp/lib ~/.oh-my-zsh/themes/lib
+        rm -r temp/
 
         ;;
     *)
