@@ -15,6 +15,9 @@ case "$response" in
         # Install tmux
         sudo apt install tmux -y
 
+        # Install xclip
+        sudo apt install xclip -y
+
         # Install cmake
         curl -L -O https://github.com/Kitware/CMake/releases/download/v3.25.0/cmake-3.25.0.tar.gz
         tar -zxvf cmake-3.25.0.tar.gz && cd cmake-3.25.0.tar.gz/
@@ -27,6 +30,10 @@ case "$response" in
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
         ~/.fzf/install -y
         sudo apt-get install silversearcher-ag -y
+
+        # Install ripgrep
+        curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
+        rm ripgrep_13.0.0_amd64.deb
 
         # Change gnome terminal theme
         yes 76 | bash -c  "$(wget -qO- https://git.io/vQgMr)"
