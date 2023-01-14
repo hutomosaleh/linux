@@ -60,7 +60,6 @@ case "$response" in
 
         # Install neovim basic configs
         cp -TRv config/nvim ~/.config/nvim
-        echo "Run nvim and wait until plugins are installed!"
 
         # Install zsh and ohmyzsh
         sudo apt install zsh -y
@@ -73,6 +72,8 @@ case "$response" in
         cp -r temp/lib ~/.oh-my-zsh/themes/lib
         rm -r temp/
 
+        echo "Installation complete. Re-login to apply zsh changes."
+        echo "Run nvim and wait until plugins are installed!"
         ;;
     *)
         echo "See ya."
