@@ -21,6 +21,7 @@ case "$response" in
         ./bootstrap && make && make install
         export PATH=$HOME/cmake-install/bin:$PATH
         export CMAKE_PREFIX_PATH=$HOME/cmake-install:$CMAKE_PREFIX_PATH
+        rm cmake-3.25.0.tar.gz && rm -r cmake-3.25.0
 
         # Install fzf
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -37,7 +38,7 @@ case "$response" in
 
         # Install nvim latest version
         curl -L -O https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
-        sudo dpkg -i nvim-linux64.deb -y
+        sudo dpkg -i nvim-linux64.deb
         rm nvim-linux64.deb
 
         # Install npm
@@ -61,8 +62,8 @@ case "$response" in
 
         # Install dracula zsh theme
         git clone https://github.com/dracula/zsh.git temp
-        cp temp/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
-        cp temp/lib ~/.oh-my-zsh/themes/lib
+        cp -r temp/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
+        cp -r temp/lib ~/.oh-my-zsh/themes/lib
         rm -r temp/
 
         ;;
