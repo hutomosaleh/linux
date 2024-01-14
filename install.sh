@@ -40,13 +40,14 @@ case "$response" in
 
         # Install nerd font
         mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts 
-        curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+        curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DroidSansMono/DroidSansMNerdFontMono-Regular.otf
+        sudo fc-cache -f -v
         cd -
 
         # Install nvim latest version
-        curl -L -O https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
-        sudo dpkg -i nvim-linux64.deb
-        rm nvim-linux64.deb
+        curl -L -O https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz 
+        tar xzvf nvim-linux64.tar.gz
+        rm nvim-linux64.tar.gz 
 
         # Install npm
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
