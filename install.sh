@@ -33,6 +33,7 @@ case "$response" in
 
         # Install ripgrep
         curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
+        sudo dpkg -i ripgrep_13.0.0_amd64.deb
         rm ripgrep_13.0.0_amd64.deb
 
         # Change gnome terminal theme
@@ -40,13 +41,16 @@ case "$response" in
 
         # Install nerd font
         mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts 
-        curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DroidSansMono/DroidSansMNerdFontMono-Regular.otf
+        curl -LO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DroidSansMono.tar.xz
+        tar -xzf DroidSansMono.tar.xz
+        ls | grep -v .otf$ | xargs rm
         sudo fc-cache -f -v
         cd -
 
         # Install nvim latest version
         curl -L -O https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz 
-        tar xzvf nvim-linux64.tar.gz
+        tar xzvf nvim-linux64.tar.gz && mv nvim-linux64 nvim
+        echo "alias nvim='~/nvim/bin/nvim" >> ~/.zshrc
         rm nvim-linux64.tar.gz 
 
         # Install npm
