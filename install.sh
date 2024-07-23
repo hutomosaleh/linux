@@ -18,6 +18,9 @@ case "$response" in
         # Install xclip
         sudo apt install xclip -y
 
+        # Install gcc build tools
+        sudo apt install build-essential
+
         # Install cmake
         curl -L -O https://github.com/Kitware/CMake/releases/download/v3.25.0/cmake-3.25.0.tar.gz
         tar -zxvf cmake-3.25.0.tar.gz && cd cmake-3.25.0.tar.gz/
