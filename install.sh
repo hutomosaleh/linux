@@ -52,7 +52,7 @@ case "$response" in
 
         # Install nvim latest version
         curl -L -O https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz 
-        tar xzvf nvim-linux64.tar.gz && mv nvim-linux64 nvim
+        tar xzvf nvim-linux64.tar.gz && mv nvim-linux64 ~/nvim
         echo "alias nvim='~/nvim/bin/nvim" >> ~/.zshrc
         rm nvim-linux64.tar.gz 
 
