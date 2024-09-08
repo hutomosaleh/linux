@@ -44,9 +44,7 @@ case "$response" in
 
         # Install nerd font
         mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts 
-        curl -LO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DroidSansMono.tar.xz
-        tar -xzf DroidSansMono.tar.xz
-        ls | grep -v .otf$ | xargs rm
+        curl -O https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
         sudo fc-cache -f -v
         cd -
 
